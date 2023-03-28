@@ -1,3 +1,3 @@
 # stglhlmn
 
-Stegelholmens Bryggförening
+Stegerholmens Bryggförening

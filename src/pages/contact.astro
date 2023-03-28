@@ -221,17 +221,17 @@ import Toaster from '../components/Toaster'
         const sendmail = async () => {
           let { name, email, message, subject } = getFormData()
           if (name.trim() === '') {
-            displayToaster('Name is missing.', (type = 'error'))
+            displayToaster('Namn saknas.', (type = 'error'))
             name.focus()
             return
           }
           if (!/^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email)) {
-            displayToaster('Email is not valid.', (type = 'error'))
+            displayToaster('Eposten är felformaterad.', (type = 'error'))
             email.focus()
             return
           }
           if (subject.trim() === '') {
-            subject = 'No subject'
+            subject = 'Ämne saknas'
           }
           const data = await fetch('/api/sendmail.json', {
             method: 'POST',
@@ -256,9 +256,9 @@ import Toaster from '../components/Toaster'
           if (data.success) {
             get('subject').value = ''
             get('message').value = ''
-            displayToaster('👍 Message was sent successfully')
+            displayToaster('👍 Meddelandet har skickats.')
           } else {
-            displayToaster('💩 Could not send message.', 'error')
+            displayToaster('💩 Ajdå, något gick snett.', 'error')
           }
         }
 

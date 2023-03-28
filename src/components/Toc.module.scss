@@ -1,0 +1,41 @@
+.toccontainer {
+  font-family: var(--sans-serif);
+  ul {
+    display: flex;
+    gap: 0.5rem;
+    flex-flow: wrap;
+    padding: 0;
+    list-style: none;
+    li {
+      border: 1px solid #9ba6ac;
+      border-radius: 2rem;
+      padding: 0.3em 0.8em;
+      max-width: 250px;
+      display: inline;
+      & > button {
+        background-color: transparent;
+        font-size: 0.7rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        user-select: none;
+        padding: 0;
+        max-width: 100%;
+      }
+      &:has(button:hover) {
+        background-color: #9ba6ac;
+        & > button {
+          color: var(--bg-color);
+        }
+      }
+
+      // Don't seem to catch on
+      &.showall {
+        background-color: #9ba6ac;
+        color: white;
+      }
+    }
+  }
+}

@@ -1,0 +1,89 @@
+---
+import BaseHead from '../components/BaseHead.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import Toc from '../components/Toc'
+import Toaster from '../components/Toaster'
+
+export interface Props {
+  content: {
+    title: string
+    description: string
+    pubDate?: string
+    updatedDate?: string
+    heroImage?: string
+  }
+}
+
+const {
+  content: { title, description, pubDate, updatedDate, heroImage },
+} = Astro.props
+---
+
+<html lang='en'>
+  <head>
+    <BaseHead title={title} description={description} />
+    <style>
+      .title {
+        font-size: 2em;
+        margin: 0.25em 0 0;
+      }
+      hr {
+        border-top: 1px solid #ddd;
+        margin: 1rem 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <Header />
+    <main>
+      <article class='snippet'>
+        {heroImage && <img width={720} height={360} src={heroImage} alt='' />}
+        <h2 class='title'>{title}</h2>
+        {pubDate && <time>{pubDate}</time>}
+        {
+          updatedDate && (
+            <div class='updated'>
+              Last updated on <time>{updatedDate}</time>
+            </div>
+          )
+        }
+        <Toc client:load />
+        <slot />
+      </article>
+    </main>
+    <Footer />
+    <style lang='scss'>
+      .updated {
+        font-family: var(--sans-serif);
+        opacity: 0.5;
+      }
+    </style>
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const intersecting = entry.isIntersecting as boolean
+            const h2 = entry.target as HTMLHeadingElement
+            if (intersecting) document.querySelector('div.sticky')?.remove()
+            else copy(h2)
+          })
+        },
+        { threshold: 1 }
+      )
+      function copy(el: HTMLHeadingElement) {
+        const clone = el.cloneNode(true) as HTMLHeadingElement
+        const div = document.createElement('div')
+        div.className = 'sticky'
+        div.appendChild(clone)
+        document.body.appendChild(div)
+        return div
+      }
+      const el = document.querySelector('h2')
+      if (el) observer.observe(el)
+    </script>
+
+    <Toaster client:only />
+  </body></html
+>

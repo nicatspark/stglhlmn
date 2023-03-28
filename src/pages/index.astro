@@ -1,0 +1,99 @@
+---
+import BaseHead from '../components/BaseHead.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import { SITE_TITLE, SITE_DESCRIPTION } from '../config'
+// import face from '/assets/_male_intellectual_face_in_paper_art.png' //?w=200&h=200&format=webp&q=80
+import Toaster from '../components/Toaster'
+---
+
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <main>
+      <div class='hero'>
+        <div>
+          <p>
+            <span class='entry'>Välkommen till en av</span> Göteborgs södra skärgårds
+            mest pittoreska småbåtshamnar, med anor som sträcker sig generationer
+            tillbaka. Under 1800-talet var hamnen bas för kungliga tullverkets båt,
+            men idag är det en fantastisk bit av bohuslänsk natur som lockar besökare
+            från när och fjärran. Hamnen har behållit sin charmiga karaktär med röda
+            fiskebodar, vita småbåtar och klippor som omger det kristallklara vattnet,
+            vilket ger besökare en känsla av lugn och ro från stadens puls.</p
+          >
+        </div>
+        <!-- <div><img src={face} alt='Hero image' width={400} height={400} /></div> -->
+      </div>
+      <hr />
+    </main>
+    <Footer />
+    <Header title={SITE_TITLE} />
+    <Toaster client:only />
+    <style lang='scss'>
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        color: rgb(37, 59, 85);
+        text-shadow: 1px 0px 1px hsl(0deg 0% 100% / 15%);
+      }
+      p {
+        color: var(--color-dark);
+      }
+      .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        p {
+          padding-inline-start: 0;
+          .entry {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 2rem;
+            color: var(--color-orange-full);
+            text-shadow: 1px 1px 1px hsl(0 0% 0% / 0.2);
+          }
+          line-height: 2rem;
+        }
+        img {
+          mix-blend-mode: darken;
+          filter: opacity(0) hue-rotate(145deg) grayscale(0) brightness(6);
+          animation: heroimg 2s forwards 1s;
+        }
+      }
+      @media screen and (min-width: 768px) {
+        .hero {
+          flex-direction: row;
+        }
+      }
+      html.dark-theme .hero .entry {
+        color: hsl(180, 20%, 42%);
+      }
+      @keyframes heroimg {
+        0% {
+          filter: opacity(0) hue-rotate(145deg) grayscale(0) brightness(6);
+        }
+        100% {
+          filter: opacity(1) hue-rotate(145deg) grayscale(0) brightness(1);
+        }
+      }
+      .dark-theme {
+        .hero {
+          img {
+            mix-blend-mode: hard-light;
+          }
+          @keyframes heroimg {
+            0% {
+              filter: opacity(0) hue-rotate(145deg) grayscale(0) brightness(0);
+            }
+            100% {
+              filter: opacity(1) hue-rotate(145deg) grayscale(0) brightness(1);
+            }
+          }
+        }
+      }
+    </style>
+  </body></html
+>

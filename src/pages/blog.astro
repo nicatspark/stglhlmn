@@ -135,7 +135,7 @@ latestPost['contrastColorShadow'] = latestPost.contrastColorShadow || 'black'
         background-color: transparent;
       }
       ul li time {
-        flex: 0 0 11ch;
+        flex: 0 0 14ch;
         color: #979797;
         font-size: 0.6em;
         text-transform: uppercase;
@@ -156,14 +156,14 @@ latestPost['contrastColorShadow'] = latestPost.contrastColorShadow || 'black'
       >
       <div class='collections'>
         <section class='neu-box' aria-label="Articles">
-          <h3>Articles</h3>
+          <h3>Artiklar</h3>
           <ul>
             {
               posts.map((post) => (
                 <li>
                   <time datetime={post.frontmatter.pubDate}>
                     {new Date(post.frontmatter.pubDate).toLocaleDateString(
-                      'en-us',
+                      'swe',
                       {
                         year: 'numeric',
                         month: 'short',

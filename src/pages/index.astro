@@ -14,7 +14,12 @@ import Toaster from '../components/Toaster'
   </head>
   <body>
     <div class='heroimg'
-      ><img src='/assets/stegerholmen_evening_view.webp' /></div
+      ><img
+        src='/assets/stegerholmen_evening_view.webp'
+        srcset='/assets/stegerholmen_evening_view.webp 800w,/assets/stegerholmen_evening_view_hidef.webp 1000w'
+        sizes='(min-width: 1800px) 1800px, 100vw'
+        alt='Stegelholmen kvällsvy'
+      /></div
     >
     <main>
       <div class='hero'>
@@ -62,7 +67,7 @@ import Toaster from '../components/Toaster'
           object-fit: cover;
           margin-inline: auto;
           width: 100%;
-          max-width: 1400px;
+          max-width: 1800px;
         }
       }
       .hero {

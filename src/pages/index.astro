@@ -56,9 +56,13 @@ import Toaster from '../components/Toaster'
       .heroimg {
         position: relative;
         top: var(--header-height);
+        max-height: 400px;
+        overflow: hidden;
         img {
           object-fit: cover;
           margin-inline: auto;
+          width: 100%;
+          max-width: 1400px;
         }
       }
       .hero {

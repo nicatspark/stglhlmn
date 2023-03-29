@@ -3,7 +3,7 @@ import BaseHead from '../components/BaseHead.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config'
-// import face from '/assets/_male_intellectual_face_in_paper_art.png' //?w=200&h=200&format=webp&q=80
+import krabbfiske from '/assets/krabbfiske.webp' //?w=200&h=200&format=webp&q=80
 import Toaster from '../components/Toaster'
 ---
 
@@ -13,6 +13,9 @@ import Toaster from '../components/Toaster'
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body>
+    <div class='heroimg'
+      ><img src='/assets/stegerholmen_evening_view.webp' /></div
+    >
     <main>
       <div class='hero'>
         <div>
@@ -26,7 +29,14 @@ import Toaster from '../components/Toaster'
             vilket ger besökare en känsla av lugn och ro från stadens puls.</p
           >
         </div>
-        <!-- <div><img src={face} alt='Hero image' width={400} height={400} /></div> -->
+        <div
+          ><img
+            src={krabbfiske}
+            alt='Hero image'
+            width={400}
+            height={400}
+          /></div
+        >
       </div>
       <hr />
     </main>
@@ -42,6 +52,14 @@ import Toaster from '../components/Toaster'
       }
       p {
         color: var(--color-dark);
+      }
+      .heroimg {
+        position: relative;
+        top: var(--header-height);
+        img {
+          object-fit: cover;
+          margin-inline: auto;
+        }
       }
       .hero {
         display: flex;
@@ -59,13 +77,15 @@ import Toaster from '../components/Toaster'
         }
         img {
           mix-blend-mode: darken;
-          filter: opacity(0) hue-rotate(145deg) grayscale(0) brightness(6);
+          filter: opacity(0) brightness(6);
           animation: heroimg 2s forwards 1s;
+          max-width: 200px;
         }
       }
       @media screen and (min-width: 768px) {
         .hero {
           flex-direction: row;
+          gap: 1rem;
         }
       }
       html.dark-theme .hero .entry {
@@ -73,23 +93,23 @@ import Toaster from '../components/Toaster'
       }
       @keyframes heroimg {
         0% {
-          filter: opacity(0) hue-rotate(145deg) grayscale(0) brightness(6);
+          filter: opacity(0) brightness(6);
         }
         100% {
-          filter: opacity(1) hue-rotate(145deg) grayscale(0) brightness(1);
+          filter: opacity(1) brightness(1);
         }
       }
       .dark-theme {
         .hero {
           img {
-            mix-blend-mode: hard-light;
+            mix-blend-mode: normal;
           }
           @keyframes heroimg {
             0% {
-              filter: opacity(0) hue-rotate(145deg) grayscale(0) brightness(0);
+              filter: opacity(0) brightness(0);
             }
             100% {
-              filter: opacity(1) hue-rotate(145deg) grayscale(0) brightness(1);
+              filter: opacity(1) brightness(1);
             }
           }
         }

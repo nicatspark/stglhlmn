@@ -48,10 +48,6 @@ declare module 'astro:content' {
 		collection: C,
 		filter?: (entry: CollectionEntry<C>) => entry is E
 	): Promise<E[]>;
-	export function getCollection<C extends keyof typeof entryMap>(
-		collection: C,
-		filter?: (entry: CollectionEntry<C>) => unknown
-	): Promise<CollectionEntry<C>[]>;
 
 	type InferEntrySchema<C extends keyof typeof entryMap> = import('astro/zod').infer<
 		Required<ContentConfig['collections'][C]>['schema']
@@ -66,115 +62,8 @@ declare module 'astro:content' {
 	};
 
 	const entryMap: {
-		"blog": {
-"CSS-module-scripts.md": {
-  id: "CSS-module-scripts.md",
-  slug: "css-module-scripts",
-  body: string,
-  collection: "blog",
-  data: any
-},
-"create-wifi-qr.md": {
-  id: "create-wifi-qr.md",
-  slug: "create-wifi-qr",
-  body: string,
-  collection: "blog",
-  data: any
-},
-"creating-endpoint-in-astro.md": {
-  id: "creating-endpoint-in-astro.md",
-  slug: "creating-endpoint-in-astro",
-  body: string,
-  collection: "blog",
-  data: any
-},
-"css-to-inline-scroll-with-transitions.md": {
-  id: "css-to-inline-scroll-with-transitions.md",
-  slug: "css-to-inline-scroll-with-transitions",
-  body: string,
-  collection: "blog",
-  data: any
-},
-"error-handling-fetch.md": {
-  id: "error-handling-fetch.md",
-  slug: "error-handling-fetch",
-  body: string,
-  collection: "blog",
-  data: any
-},
-"error-handling-in-typescript.md": {
-  id: "error-handling-in-typescript.md",
-  slug: "error-handling-in-typescript",
-  body: string,
-  collection: "blog",
-  data: any
-},
-"guidlines-on-unit-testing.md": {
-  id: "guidlines-on-unit-testing.md",
-  slug: "guidlines-on-unit-testing",
-  body: string,
-  collection: "blog",
-  data: any
-},
-"hits-n-misses-2022.md": {
-  id: "hits-n-misses-2022.md",
-  slug: "hits-n-misses-2022",
-  body: string,
-  collection: "blog",
-  data: any
-},
-"hydroactive-functional-wc.md": {
-  id: "hydroactive-functional-wc.md",
-  slug: "hydroactive-functional-wc",
-  body: string,
-  collection: "blog",
-  data: any
-},
-"markdown-style-guide.md": {
-  id: "markdown-style-guide.md",
-  slug: "markdown-style-guide",
-  body: string,
-  collection: "blog",
-  data: any
-},
-"send-mail-with-node.md": {
-  id: "send-mail-with-node.md",
-  slug: "send-mail-with-node",
-  body: string,
-  collection: "blog",
-  data: any
-},
-"using-mdx.mdx": {
-  id: "using-mdx.mdx",
-  slug: "using-mdx",
-  body: string,
-  collection: "blog",
-  data: any
-},
-"view-transition-api.md": {
-  id: "view-transition-api.md",
-  slug: "view-transition-api",
-  body: string,
-  collection: "blog",
-  data: any
-},
-"want-to-see-the-future.md": {
-  id: "want-to-see-the-future.md",
-  slug: "want-to-see-the-future",
-  body: string,
-  collection: "blog",
-  data: any
-},
-"we-animation-API.md": {
-  id: "we-animation-API.md",
-  slug: "we-animation-api",
-  body: string,
-  collection: "blog",
-  data: any
-},
-},
-
+		
 	};
 
-	type ContentConfig = typeof import("../src/content/config");
+	type ContentConfig = never;
 }

@@ -172,6 +172,10 @@ pre {
   }
 }
 
+:where(hr) {
+  margin-block: 1rem;
+}
+
 // article.snippet,
 article.blog {
   hr.separator {
@@ -299,7 +303,9 @@ li.showall {
   --tooltip-color: hsl(0, 0%, 10%);
   --tooltip-offset: 4%;
 }
-
+.desktop_wide {
+  display: none;
+}
 .desktop {
   display: none;
 }
@@ -312,6 +318,11 @@ li.showall {
   }
   .mobile {
     display: none;
+  }
+  @media screen and (min-width: 1280px) {
+    .desktop_wide {
+      display: initial;
+    }
   }
 }
 

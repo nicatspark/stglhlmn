@@ -5,6 +5,9 @@ import Footer from '../components/Footer.astro'
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config'
 import krabbfiske from '/assets/krabbfiske.webp' //?w=200&h=200&format=webp&q=80
 import Toaster from '../components/Toaster'
+import { getCollection } from 'astro:content'
+
+const allNews = await getCollection('news')
 ---
 
 <!DOCTYPE html>
@@ -44,6 +47,18 @@ import Toaster from '../components/Toaster'
         >
       </div>
       <hr />
+      <div>
+        {
+          allNews.map(({ data, slug }) => (
+            <>
+              <h5>
+                <a href={`/posts/${slug}`}>{data.title}</a>
+              </h5>
+              <p>{data.description}</p>
+            </>
+          ))
+        }
+      </div>
     </main>
     <Footer />
     <Header title={SITE_TITLE} />

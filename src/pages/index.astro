@@ -51,7 +51,7 @@ const allNews = await getCollection('news')
       <div class='card-container'>
         {
           allNews.map(({ data, slug }) => (
-            <dic class='card-item' onClick={`location.href = /posts/${slug}`}>
+            <dic class='card-item' onClick={`location.href = "/posts/${slug}"`}>
               <img class='card-image' src={data.heroImage} alt={data.title} />
               <h5>
                 <a href={`/posts/${slug}`}>{data.title}</a>

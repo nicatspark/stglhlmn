@@ -3,7 +3,7 @@ layout: '../layouts/BlogPost.astro'
 title: 'Om Stegerholmens småbåtshamn'
 description: ''
 updatedDate: '28 Mars 2023'
-#heroImage: '/placeholder-about.jpg'
+heroImage: '/assets/from_above.webp'
 ---
 
 Denna webbplats är Stegerholmens Bryggförenings kommunikationskanal ut. Här bör du hitta det mesta av den information du kan förvänta dig av oss. Information som gäller bryggorna specifikt hänvisar vi direkt till respektive bryggägare.

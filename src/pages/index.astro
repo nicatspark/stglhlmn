@@ -48,15 +48,16 @@ const allNews = await getCollection('news')
         >
       </div>
       <Separator label='Nyheter' />
-      <div>
+      <div class='card-container'>
         {
           allNews.map(({ data, slug }) => (
-            <>
+            <dic class='card-item' onClick={`location.href = /posts/${slug}`}>
+              <img class='card-image' src={data.heroImage} alt={data.title} />
               <h5>
                 <a href={`/posts/${slug}`}>{data.title}</a>
               </h5>
               <p>{data.description}</p>
-            </>
+            </dic>
           ))
         }
       </div>
@@ -65,6 +66,37 @@ const allNews = await getCollection('news')
     <Header title={SITE_TITLE} />
     <Toaster client:only />
     <style lang='scss'>
+      .card-image {
+        object-fit: cover;
+        height: 140px;
+        width: 100%;
+      }
+      .card-container {
+        display: grid;
+        grid-template-columns: repeat(
+          auto-fit,
+          minmax(200px, 1fr)
+        ); /* set minimum column width to 200px, and allow autosizing to fill available space */
+        gap: 20px;
+      }
+
+      .card-item {
+        cursor: pointer;
+        h5 {
+          background-color: #ccc;
+          padding: 0.3rem 0.2rem;
+          margin: 0.5rem 0 1rem;
+          font-size: 1.5rem;
+          letter-spacing: 0;
+        }
+      }
+      .dark-theme .card-item h5 {
+        background-color: var(--color-calm-dark);
+        opacity: 0.5;
+        a {
+          color: white;
+        }
+      }
       h1 {
         font-size: 2rem;
         margin-bottom: 2rem;

@@ -12,6 +12,7 @@ const { label } = Astro.props as Props
   label {
     --border-height: 3px;
     --line-color: hsl(0, 0%, 80%);
+    --accent-color: var(--red-7);
     margin-block: 1rem;
     display: block;
     isolation: isolate;
@@ -37,12 +38,13 @@ const { label } = Astro.props as Props
         position: absolute;
         bottom: calc(var(--border-height) * -2);
         left: 0;
-        background-color: var(--red-10);
+        background-color: var(--accent-color);
         z-index: 1;
       }
     }
   }
   html.dark-theme label {
     --line-color: hsl(0, 0%, 40%);
+    --accent-color: var(--red-10);
   }
 </style>

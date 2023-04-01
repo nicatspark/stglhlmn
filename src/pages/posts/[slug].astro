@@ -22,9 +22,8 @@ const { Content } = await entry.render()
 
 // const { data, render } = Astro.props
 // const { Content } = await render()
-const { pubDate, ...props } = entry.data
 ---
 
-<MarkdownPostLayout content={props}>
+<MarkdownPostLayout content={entry.data}>
   <Content />
 </MarkdownPostLayout>

@@ -1,11 +1,11 @@
 ---
 # layout: '../../layouts/BlogPost.astro'
-title: 'Städdag i hamnen lördagen den 3 juni kl 10.00'
+title: Städdag i hamnen lördagen den 3 juni kl 10.00
 tags:
-  - 'Städdag'
-  - '2023'
-description: 'Ett uppskattat inslag på försommaren är när vi fixar upp vår hamn för säsongen.'
-pubDate: 'March 31, 2023'
+  - Städdag
+  - vinter
+description: Ett uppskattat inslag på försommaren är när vi fixar upp vår hamn för säsongen.
+pubDate: 2023-04-01
 heroImage: '/assets/blog/crab.webp'
 ---
 

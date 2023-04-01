@@ -10,7 +10,7 @@ export interface Props {
   content: {
     title: string
     description: string
-    pubDate?: string
+    pubDate?: Date
     updatedDate?: string
     heroImage?: string
   }
@@ -61,7 +61,14 @@ const {
         {
           updatedDate && (
             <div class='updated'>
-              Publiserad <time>{updatedDate}</time>
+              Publicerad{' '}
+              <time>
+                {new Intl.DateTimeFormat('de-DE', {
+                  day: 'numeric',
+                  month: 'numeric',
+                  year: '2-digit',
+                }).format(new Date(updatedDate))}
+              </time>
             </div>
           )
         }

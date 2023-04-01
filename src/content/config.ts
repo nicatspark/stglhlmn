@@ -1,5 +1,5 @@
 import { z, defineCollection } from 'astro:content'
-const newsCollection = defineCollection({
+const news = defineCollection({
   schema: z.object({
     title: z.string(),
     tags: z.array(z.string()),
@@ -9,6 +9,4 @@ const newsCollection = defineCollection({
     isDraft: z.boolean().optional(),
   }),
 })
-export const collections = {
-  news: newsCollection,
-}
+export const collections = { news }

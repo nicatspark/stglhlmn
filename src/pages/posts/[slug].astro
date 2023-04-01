@@ -1,6 +1,6 @@
 ---
 import { getEntryBySlug } from 'astro:content'
-// import MarkdownPostLayout from '../../layouts/BlogPost.astro'
+import MarkdownPostLayout from '../../layouts/BlogPost.astro'
 
 const { slug } = Astro.params
 if (slug === undefined) {
@@ -22,8 +22,9 @@ const { Content } = await entry.render()
 
 // const { data, render } = Astro.props
 // const { Content } = await render()
+const { pubDate, ...props } = entry.data
 ---
 
-<!-- <MarkdownPostLayout> -->
-<Content />
-<!-- </MarkdownPostLayout> -->
+<MarkdownPostLayout content={props}>
+  <Content />
+</MarkdownPostLayout>

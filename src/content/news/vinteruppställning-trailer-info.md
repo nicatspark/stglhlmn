@@ -1,5 +1,5 @@
 ---
-layout: '../../layouts/BlogPost.astro'
+# layout: '../../layouts/BlogPost.astro'
 title: 'Info angående vinteruppställning på trailer'
 tags:
   - 'uppställning'

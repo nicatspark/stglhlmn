@@ -1,5 +1,5 @@
 ---
-layout: '../../layouts/BlogPost.astro'
+# layout: '../../layouts/BlogPost.astro'
 title: 'Städdag i hamnen lördagen den 3 juni kl 10.00'
 tags:
   - 'Städdag'

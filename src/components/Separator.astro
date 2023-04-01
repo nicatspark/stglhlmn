@@ -1,0 +1,48 @@
+---
+interface Props {
+  label: string
+}
+
+const { label } = Astro.props as Props
+---
+
+<label><span class='inner'>{label}</span></label>
+
+<style lang='scss'>
+  label {
+    --border-height: 3px;
+    --line-color: hsl(0, 0%, 80%);
+    margin-block: 1rem;
+    display: block;
+    isolation: isolate;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.2rem;
+    position: relative;
+    &::after {
+      content: '';
+      width: 100%;
+      height: var(--border-height);
+      position: absolute;
+      bottom: calc((var(--border-height) - 1px) * -1);
+      left: 0;
+      background-color: var(--line-color);
+    }
+    span {
+      position: relative;
+      color: var(--line-color);
+      &::after {
+        content: '';
+        width: 100%;
+        height: var(--border-height);
+        position: absolute;
+        bottom: calc(var(--border-height) * -2);
+        left: 0;
+        background-color: var(--red-10);
+        z-index: 1;
+      }
+    }
+  }
+  html.dark-theme label {
+    --line-color: hsl(0, 0%, 40%);
+  }
+</style>

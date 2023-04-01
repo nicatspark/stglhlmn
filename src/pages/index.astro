@@ -6,6 +6,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../config'
 import krabbfiske from '/assets/krabbfiske.webp' //?w=200&h=200&format=webp&q=80
 import Toaster from '../components/Toaster'
 import { getCollection } from 'astro:content'
+import Separator from '../components/Separator.astro'
 
 const allNews = await getCollection('news')
 ---
@@ -46,7 +47,7 @@ const allNews = await getCollection('news')
           /></div
         >
       </div>
-      <hr />
+      <Separator label='Nyheter' />
       <div>
         {
           allNews.map(({ data, slug }) => (

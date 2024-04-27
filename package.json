@@ -16,6 +16,7 @@
     "@astrojs/react": "^2.0.0",
     "@astrojs/rss": "^2.1.0",
     "@astrojs/sitemap": "^1.0.0",
+    "@js-temporal/polyfill": "^0.4.4",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "astro": "^2.1.9",

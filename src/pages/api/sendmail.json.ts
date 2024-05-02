@@ -22,7 +22,7 @@ export const post: APIRoute = async ({ request }) => {
     const sentdate = Temporal.Now.plainDateTimeISO().toString()
 
     // read previous log file and append new log
-    saveToLog(name, email, subject, formData.message, sentdate)
+    // saveToLog(name, email, subject, formData.message, sentdate)
 
     const html = `<div style="margin: 20px auto;font-family: Helvetica, Verdana, sans-serif">${message.replace(
       /[\r\n]/g,
@@ -70,32 +70,32 @@ export const post: APIRoute = async ({ request }) => {
   }
   return new Response(null, { status: 400 }) // if not a json request
 }
-function saveToLog(
-  name: string,
-  email: string,
-  subject: string,
-  message: string,
-  sentdate: string
-) {
-  const logFilePath = 'sentMailLog.json'
-  // make sure log file exists
-  if (!fs.existsSync(logFilePath)) {
-    try {
-      fs.writeFileSync(logFilePath, '[]')
-    } catch (error) {
-      console.log('Error creating log file:', error)
-    }
-  }
-  let previousLogs = []
-  try {
-    const logFileData = fs.readFileSync(logFilePath, 'utf-8')
-    previousLogs = JSON.parse(logFileData)
-  } catch (error) {
-    console.log('Error reading log file:', error)
-  }
+// function saveToLog(
+//   name: string,
+//   email: string,
+//   subject: string,
+//   message: string,
+//   sentdate: string
+// ) {
+//   const logFilePath = 'sentMailLog.json'
+//   // make sure log file exists
+//   if (!fs.existsSync(logFilePath)) {
+//     try {
+//       fs.writeFileSync(logFilePath, '[]')
+//     } catch (error) {
+//       console.log('Error creating log file:', error)
+//     }
+//   }
+//   let previousLogs = []
+//   try {
+//     const logFileData = fs.readFileSync(logFilePath, 'utf-8')
+//     previousLogs = JSON.parse(logFileData)
+//   } catch (error) {
+//     console.log('Error reading log file:', error)
+//   }
 
-  // append mail to log file
-  const logEntry = { name, email, subject, message, sentdate }
-  previousLogs.push(logEntry)
-  fs.writeFileSync(logFilePath, JSON.stringify(previousLogs, null, 2))
-}
+//   // append mail to log file
+//   const logEntry = { name, email, subject, message, sentdate }
+//   previousLogs.push(logEntry)
+//   fs.writeFileSync(logFilePath, JSON.stringify(previousLogs, null, 2))
+// }

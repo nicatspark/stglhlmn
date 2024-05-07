@@ -131,7 +131,14 @@ import Toaster from '../components/Toaster'
         onsubmit='event => event.preventDefault();return false'
       >
         <h3>Kontakta föreningen</h3>
-        <fieldset>
+
+        <label for='name'>Kassör:</label> 0734-486 486 / <a
+          href='mailto:nicolas@hervy.se'>nicolas@hervy.se</a
+        >
+        <label for='name'>Ordförande:</label> 0733-361 98 93 / <a
+          href='mailto:yann@hervy.se'>yann@hervy.se</a
+        >
+        <!-- <fieldset>
           <label for='name'>Namn</label>
           <input type='text' id='name' value='' />
         </fieldset>
@@ -149,7 +156,7 @@ import Toaster from '../components/Toaster'
         <button type='submit'>
           <div class='idle'>Skicka</div>
           <div class='loader'></div>
-        </button>
+        </button> -->
       </form>
       <script is:inline>
         const get = (id) =>
@@ -157,7 +164,9 @@ import Toaster from '../components/Toaster'
             value: '',
           }
 
-        const submitForm = () => {
+        const submitForm = (e) => {
+          console.log('form submitted')
+          e.preventDefault()
           if (formState().isLoading()) return
           formState().setToLoading(true)
           saveInput()
@@ -210,8 +219,8 @@ import Toaster from '../components/Toaster'
           return { setToLoading, isLoading }
         }
 
-        const submitBtn = document.querySelector('[type="submit"]')
-        submitBtn?.addEventListener('click', submitForm)
+        const submitBtn = document.querySelector('form')
+        submitBtn?.addEventListener('submit', submitForm)
         retrieveInfo()
         ;[...document.querySelectorAll('input')][0]?.focus()
         // window.onload = () => {

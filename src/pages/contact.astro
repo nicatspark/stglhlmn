@@ -132,12 +132,19 @@ import Toaster from '../components/Toaster'
       >
         <h3>Kontakta föreningen</h3>
 
-        <label for='name'>Kassör:</label> 0734-486 486 / <a
-          href='mailto:nicolas@hervy.se'>nicolas@hervy.se</a
-        >
-        <label for='name'>Ordförande:</label> 0733-361 98 93 / <a
-          href='mailto:yann@hervy.se'>yann@hervy.se</a
-        >
+        <div class='columns'>
+          <label for='name'>Kassör:</label> 0734-486 486 / <a
+            href='mailto:nicolas@hervy.se'>nicolas@hervy.se</a
+          >
+        </div>
+        <div class='columns'>
+          <label for='name'>Ordförande:</label> 0733-361 98 93 / <a
+            href='mailto:yann@hervy.se'>yann@hervy.se</a
+          >
+        </div>
+        <p>
+          Frågor rörande bryggplatser tas lämpligen med respektive brygglag.
+        </p>
         <!-- <fieldset>
           <label for='name'>Namn</label>
           <input type='text' id='name' value='' />
@@ -282,5 +289,27 @@ import Toaster from '../components/Toaster'
     </main>
     <Footer />
     <Toaster client:only />
-  </body></html
->
+    <style lang='scss'>
+      .columns {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0.5rem 0;
+        label {
+          flex: 1;
+          margin-right: 1rem;
+        }
+        &:first-of-type {
+          margin-top: 4rem;
+        }
+        &:last-of-type {
+          margin-bottom: 4rem;
+        }
+      }
+      .columns a {
+        color: var(--cta-clr);
+        text-decoration: none;
+      }
+    </style></body
+  >
+</html>
